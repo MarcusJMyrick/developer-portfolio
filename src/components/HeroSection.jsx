@@ -1,37 +1,42 @@
-import { motion } from 'framer-motion';
+import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4"
-        >
-          Welcome to My Portfolio
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg sm:text-xl text-foreground/80 mb-8"
-        >
-          Full Stack Developer | Software Engineer | Problem Solver
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <a
-            href="#contact"
-            className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+    >
+      <div className="container max-w-4xl mx-auto text-center z-10">
+        <div className="space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
+            <span className="text-primary opacity-0 animate-fade-in-delay-1">
+              {" "}
+              Pedro
+            </span>
+            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+              {" "}
+              Machado
+            </span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
+            I create stellar web experiences with modern technologies.
+            Specializing in front-end development, I build interfaces that are
+            both beautiful and functional.
+          </p>
+
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+            <a href="#projects" className="cosmic-button">
+              View My Work
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
+        <ArrowDown className="h-5 w-5 text-primary" />
       </div>
     </section>
   );
