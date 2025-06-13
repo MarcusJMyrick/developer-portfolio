@@ -163,85 +163,72 @@ const experiences = [
   },
 ];
 
-
-const projects = [
+export const projects = [
   {
-    name: "AgentConnect – Full-Stack HR Dashboard",
+    name: "Project 1",
     description:
-      "A cloud-native HR platform simulating State Farm’s SSAA application to manage agents, teams, and assignments, featuring a responsive UI and a robust RESTful API.",
-    category: "Software Engineering",
+      "A web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "text-blue-500",
       },
       {
-        name: "nodejs",
-        color: "green-text-gradient",
+        name: "mongodb",
+        color: "text-green-500",
       },
       {
-        name: "postgresql",
-        color: "pink-text-gradient",
-      },
-       {
-        name: "docker",
-        color: "blue-text-gradient",
+        name: "tailwind",
+        color: "text-pink-500",
       },
     ],
-    image: carrent, // Placeholder Image
-    source_code_link: "https://github.com/MarcusJMyrick/agentconnect",
+    image: "https://via.placeholder.com/400x300",
+    source_code_link: "https://github.com/",
+    category: "Software Engineering"
   },
   {
-    name: "Marketing ROI Intelligence Platform",
+    name: "Project 2",
     description:
-      "An end-to-end media analytics pipeline delivering marketing ROI insights by processing, modeling, and visualizing customer data with attribution and forecasting models.",
-    category: "Data and Analytics",
+      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    tags: [
+      {
+        name: "react",
+        color: "text-blue-500",
+      },
+      {
+        name: "restapi",
+        color: "text-green-500",
+      },
+      {
+        name: "scss",
+        color: "text-pink-500",
+      },
+    ],
+    image: "https://via.placeholder.com/400x300",
+    source_code_link: "https://github.com/",
+    category: "Software Engineering"
+  },
+  {
+    name: "Project 3",
+    description:
+      "A real-time analytics dashboard that provides insights into user behavior, website performance, and business metrics.",
     tags: [
       {
         name: "python",
-        color: "blue-text-gradient",
+        color: "text-blue-500",
       },
       {
-        name: "airflow",
-        color: "green-text-gradient",
+        name: "pandas",
+        color: "text-green-500",
       },
       {
-        name: "prophet",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "docker",
-        color: "blue-text-gradient",
+        name: "matplotlib",
+        color: "text-pink-500",
       },
     ],
-    image: jobit, // Placeholder Image
-    source_code_link: "https://github.com/MarcusJMyrick/mpad-analytics",
-  },
-  {
-    name: "MMM Data Pipeline Prototype",
-    description:
-      "A production-style, end-to-end ELT data pipeline for a Media Mix Model, automating data ingestion, transformation, and validation using a modern, file-based data stack.",
-    category: "Quantitative Development",
-    tags: [
-      {
-        name: "python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "dbt",
-        color: "green-text-gradient",
-      },
-      {
-        name: "duckdb",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "bash",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: tripguide, // Placeholder Image
-    source_code_link: "https://github.com/MarcusJMyrick/mmm-data-pipeline",
+    image: "https://via.placeholder.com/400x300",
+    source_code_link: "https://github.com/",
+    category: "Data and Analytics"
   },
 ];
 
