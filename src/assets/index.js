@@ -1,3 +1,3 @@
-import github from './github.png';
+import github from './github.svg';
 
 export { github }; 

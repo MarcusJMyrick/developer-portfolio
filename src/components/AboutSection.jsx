@@ -1,97 +1,41 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { motion } from 'framer-motion';
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative">
-      {" "}
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
-        </h2>
+    <section id="about" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            About Me
+          </h2>
+          <div className="w-24 h-1 bg-primary mx-auto"></div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">
-              Versatile Engineer & Data Enthusiast
-            </h3>
-
-            <p className="text-muted-foreground">
-              I'm a versatile engineer with a passion for building robust,
-              data-centric applications. With a foundation in full-stack
-              development and specialized expertise in data engineering, I
-              transform complex datasets into actionable insights and intuitive
-              user experiences.
-            </p>
-
-            <p className="text-muted-foreground">
-              From developing automated ETL pipelines with Airflow and dbt to
-              engineering responsive frontends in React and Node.js, I thrive at
-              the intersection of data, software, and cloud infrastructure. My
-              goal is to leverage technology to solve challenging problems and
-              drive data-informed decisions.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button">
-                {" "}
-                Get In Touch
-              </a>
-
-              <a
-                href=""
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-              >
-                Download CV
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg"> Web Development</h4>
-                  <p className="text-muted-foreground">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
-                  <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
-                  <p className="text-muted-foreground">
-                    Leading projects from conception to completion with agile
-                    methodologies.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <p className="text-lg text-foreground/80 mb-6">
+            I am a passionate full-stack developer with expertise in building modern web applications.
+            With a strong foundation in both frontend and backend technologies, I create seamless
+            user experiences and robust server-side solutions.
+          </p>
+          <p className="text-lg text-foreground/80">
+            My journey in software development has equipped me with a diverse skill set,
+            allowing me to tackle complex problems and deliver high-quality solutions.
+            I am constantly learning and adapting to new technologies to stay at the
+            forefront of web development.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
