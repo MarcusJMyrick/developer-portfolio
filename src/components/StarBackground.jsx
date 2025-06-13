@@ -1,73 +1,95 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from "react";
 
 // id, size, x, y, opacity, animationDuration
 // id, size, x, y, delay, animationDuration
 
 export const StarBackground = () => {
-  const canvasRef = useRef(null);
+  const [stars, setStars] = useState([]);
+  const [meteors, setMeteors] = useState([]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let stars = [];
+    generateStars();
+    generateMeteors();
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    const handleResize = () => {
+      generateStars();
     };
 
-    const createStars = () => {
-      stars = [];
-      const numberOfStars = 200;
-      for (let i = 0; i < numberOfStars; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2,
-          speed: Math.random() * 0.5,
-        });
-      }
-    };
+    window.addEventListener("resize", handleResize);
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#FFFFFF';
-
-      stars.forEach((star) => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-
-        star.y += star.speed;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    resizeCanvas();
-    createStars();
-    animate();
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      createStars();
-    });
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const generateStars = () => {
+    const numberOfStars = Math.floor(
+      (window.innerWidth * window.innerHeight) / 10000
+    );
+
+    const newStars = [];
+
+    for (let i = 0; i < numberOfStars; i++) {
+      newStars.push({
+        id: i,
+        size: Math.random() * 3 + 1,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        opacity: Math.random() * 0.5 + 0.5,
+        animationDuration: Math.random() * 4 + 2,
+      });
+    }
+
+    setStars(newStars);
+  };
+
+  const generateMeteors = () => {
+    const numberOfMeteors = 4;
+    const newMeteors = [];
+
+    for (let i = 0; i < numberOfMeteors; i++) {
+      newMeteors.push({
+        id: i,
+        size: Math.random() * 2 + 1,
+        x: Math.random() * 100,
+        y: Math.random() * 20,
+        delay: Math.random() * 15,
+        animationDuration: Math.random() * 3 + 3,
+      });
+    }
+
+    setMeteors(newMeteors);
+  };
+
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-    />
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {stars.map((star) => (
+        <div
+          key={star.id}
+          className="star animate-pulse-subtle"
+          style={{
+            width: star.size + "px",
+            height: star.size + "px",
+            left: star.x + "%",
+            top: star.y + "%",
+            opacity: star.opacity,
+            animationDuration: star.animationDuration + "s",
+          }}
+        />
+      ))}
+
+      {meteors.map((meteor) => (
+        <div
+          key={meteor.id}
+          className="meteor animate-meteor"
+          style={{
+            width: meteor.size * 50 + "px",
+            height: meteor.size * 2 + "px",
+            left: meteor.x + "%",
+            top: meteor.y + "%",
+            animationDelay: meteor.delay,
+            animationDuration: meteor.animationDuration + "s",
+          }}
+        />
+      ))}
+    </div>
   );
 };
