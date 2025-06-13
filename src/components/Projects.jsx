@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { styles } from "../style";
 import { github } from "../assets";
-import { SectionWrapper } from "../hoc";
+import { SectionWrapper } from "../hoc/index.jsx";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
